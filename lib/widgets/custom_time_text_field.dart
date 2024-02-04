@@ -4,7 +4,6 @@ import '../utils/style.dart';
 class CustomTimeTextField extends StatefulWidget {
   final FocusNode focusNode;
   final TextEditingController controller;
-  final TextInputType keyboardType;
   final bool showError;
   final TextStyle textStyle;
   final Function onTyping;
@@ -13,7 +12,7 @@ class CustomTimeTextField extends StatefulWidget {
   CustomTimeTextField({
     required this.focusNode,
     required this.controller,
-    this.keyboardType = TextInputType.number,
+
     this.showError = false,
     this.textStyle = AppTextStyle.inputTime,
     Key? key,
@@ -50,14 +49,17 @@ class _CustomTimeTextFieldState extends State<CustomTimeTextField> {
           textAlign: TextAlign.center,
           maxLength: 1,
           onChanged: (x) {
-            if (widget.onTyping != null) widget.onTyping(x);
-            if(x.isNotEmpty&&x.length==1) FocusScope.of(context).nextFocus();
+
+              widget.onTyping(x);
+            if (x.isNotEmpty)
+              FocusScope.of(context).nextFocus();
+            if (x.isEmpty) FocusScope.of(context).previousFocus();
           },
           focusNode: widget.focusNode,
           controller: widget.controller,
           minLines: null,
           style: widget.textStyle,
-          keyboardType: widget.keyboardType,
+          keyboardType: TextInputType.number ,
 
           decoration: const InputDecoration(
             counterText: "",

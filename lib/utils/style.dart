@@ -10,6 +10,7 @@ class AppColor {
       Color.fromRGBO(106, 81, 183, 1);
   static const Color buttonPressedColor =
       Color.fromRGBO(75, 48, 162, 1);
+
   static const Color buttonHoverColor =
       Color.fromRGBO(146, 124, 212, 1);
   static const Color buttonInactiveColor =
