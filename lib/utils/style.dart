@@ -6,15 +6,13 @@ class AppColor {
   static const Color focusedTextFieldBorderColor =
       Color.fromRGBO(75, 48, 162, 1);
 
-  static const Color buttonActiveColor =
-      Color.fromRGBO(106, 81, 183, 1);
-  static const Color buttonPressedColor =
-      Color.fromRGBO(75, 48, 162, 1);
+  static const Color buttonActiveColor = Color.fromRGBO(106, 81, 183, 1);
+  static const Color buttonPressedColor = Color.fromRGBO(75, 48, 162, 1);
 
-  static const Color buttonHoverColor =
-      Color.fromRGBO(146, 124, 212, 1);
-  static const Color buttonInactiveColor =
-  Color.fromRGBO(185, 185, 185, 1);
+  static const Color buttonHoverColor = Color.fromRGBO(146, 124, 212, 1);
+  static const Color buttonInactiveColor = Color.fromRGBO(185, 185, 185, 1);
+  static const Color notificationCardBorderColor =
+      Color.fromRGBO(106, 7, 186, 1);
 }
 
 class AppFont {
@@ -43,13 +41,14 @@ class AppTextStyle {
       height: 1.5,
       color: Colors.black);
 
-  static const TextStyle button = TextStyle(
-      fontSize: 18,
-      fontWeight: FontWeight.w700,
+  static const TextStyle button =
+      TextStyle(fontSize: 18, fontWeight: FontWeight.w700, color: Colors.white);
 
-      color: Colors.white);
+  static const TextStyle notificationCardTitles =
+  TextStyle(fontSize: 15, color: Colors.black);
 
-
+  static const TextStyle notificationCardValues =
+  TextStyle(fontSize: 15, fontWeight: FontWeight.bold, color: Colors.black);
 }
 
 class AppValues {

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class CustomTabs extends   PreferredSize {
-    CustomTabs({super.key, required super.preferredSize, required super.child});
+class CustomTabs extends PreferredSize {
+  CustomTabs({super.key, required super.preferredSize, required super.child});
 
   late TabController _tabController;
 
@@ -11,7 +11,6 @@ class CustomTabs extends   PreferredSize {
       padding: const EdgeInsets.all(8.0),
       child: Column(
         children: [
-
           Container(
             height: 50,
             decoration: BoxDecoration(
@@ -22,7 +21,6 @@ class CustomTabs extends   PreferredSize {
             ),
             child: TabBar(
               controller: _tabController,
-
               indicator: BoxDecoration(
                 borderRadius: BorderRadius.circular(
                   8.0,
@@ -32,11 +30,9 @@ class CustomTabs extends   PreferredSize {
               labelColor: Colors.white,
               unselectedLabelColor: Colors.black,
               tabs: [
-
                 Tab(
                   text: 'One-time',
                 ),
-
                 Tab(
                   text: 'Recurring',
                 ),

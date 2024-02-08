@@ -3,8 +3,8 @@ import 'package:flutter_svg/svg.dart';
 import 'package:noti/notifications_page.dart';
 import 'package:noti/providers/login_provider.dart';
 import 'package:noti/utils/style.dart';
-import 'package:noti/widgets/custom_button.dart';
-import 'package:noti/widgets/custom_time_text_field.dart';
+import 'package:noti/widgets/bottom_button.dart';
+import 'package:noti/widgets/time_text_field.dart';
 import 'package:pinput/pinput.dart';
 import 'package:provider/provider.dart';
 
@@ -207,7 +207,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     padding: const EdgeInsets.only(left: 16.0, right: 16.0),
                     child: Consumer<LoginProvider>(
                         builder: (context, provider, child) {
-                      return CustomButton(
+                      return BottomButton(
                         text: 'Confirm',
                         color: provider.loginButtonColor(),
                         onTap: () {Navigator.of(context).push(

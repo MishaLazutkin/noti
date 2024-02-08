@@ -2,15 +2,12 @@ import 'package:flutter/material.dart';
 
 import '../utils/style.dart';
 
-class CustomButton extends StatelessWidget {
+class NotificationCardButton extends StatelessWidget {
   final String text;
   final Function onTap;
   final bool isDisabled;
   final Color color;
-  final Color activeColor;
-  final Color inactiveColor;
-  final Color hoverColor;
-  final Color pressedColor;
+
   final double elevation;
 
   final Widget leading;
@@ -18,15 +15,12 @@ class CustomButton extends StatelessWidget {
 
   final double cornerRadius;
 
-  CustomButton({
+  NotificationCardButton({
     required this.text,
     required this.onTap,
     this.isDisabled = false,
     this.color = AppColor.buttonHoverColor,
-    this.activeColor = AppColor.buttonActiveColor,
-    this.inactiveColor = AppColor.buttonInactiveColor,
-    this.hoverColor = AppColor.buttonHoverColor,
-    this.pressedColor = AppColor.buttonPressedColor,
+
     this.cornerRadius = 8,
     this.leading = const SizedBox(),
     this.height = 55,
