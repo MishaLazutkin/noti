@@ -2,45 +2,48 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:noti/utils/style.dart';
 
+import 'notification_card_button.dart';
+
 class NotificationCard extends StatelessWidget {
   const NotificationCard({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(16.0),
+      padding: const EdgeInsets.all(16.0),
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(16.0),
           border: Border.all(width: 1),
-          color: AppColor.notificationCardBorderColor),
+          color: Colors.white),
       child: Column(
+
         children: [
           Row(
             children: [
-              Text(
+              const Text(
                 'Time:',
                 style: AppTextStyle.notificationCardTitles,
               ),
-              SizedBox(
+              const SizedBox(
                 width: 5,
               ),
-              Text(
+              const Text(
                 '21:10',
                 style: AppTextStyle.notificationCardValues,
               ),
-              Spacer(),
+              const Spacer(),
               SvgPicture.asset(
                 'lib/assets/icons/delete_forever_icon.svg',
-                width: 15,
-                height: 15,
+                width: 20,
+                height: 20,
                 color: Colors.red,
               )
             ],
           ),
-          SizedBox(
+          const SizedBox(
             height: 16,
           ),
-          Row(
+          const Row(
             children: [
               Text(
                 'Message:',
@@ -56,10 +59,18 @@ class NotificationCard extends StatelessWidget {
 
             ],
           ),
-          SizedBox(
+          const SizedBox(
             height: 16,
           ),
-
+          Row(
+            children: [
+              NotificationCardButton(text: 'Select triger 1',onTap: (){},),
+              const SizedBox(
+                width: 16,
+              ),
+              NotificationCardButton(text: 'Select triger 2',onTap: (){},),
+            ],
+          ),
         ],
       ),
     );

@@ -20,9 +20,9 @@ class LoginProvider extends ChangeNotifier {
 
   Color loginButtonColor() {
     if (isTimeEntered) {
-      return AppColor.buttonActiveColor;
+      return AppColor.bottomButtonActiveColor;
     } else {
-      return AppColor.buttonInactiveColor;
+      return AppColor.bottomButtonInactiveColor;
     }
   }
 

@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:noti/widgets/tabs.dart';
 
+import 'widgets/notification_card.dart';
+
 class NotificationsPage extends StatefulWidget {
   const NotificationsPage({super.key});
 
@@ -100,13 +102,12 @@ class _NotificationsPageState extends State<NotificationsPage>
         body: TabBarView(
           controller: _tabController,
           children: const [
-            Center(
-              child: Text(
-                'Basic Settings',
-                style: TextStyle(
-                  fontSize: 30,
-                ),
-              ),
+            Column(
+              children: [
+                NotificationCard(),
+                SizedBox(height: 16,),
+                NotificationCard(),
+              ],
             ),
             Center(
               child: Text(

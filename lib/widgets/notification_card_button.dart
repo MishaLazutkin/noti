@@ -6,7 +6,8 @@ class NotificationCardButton extends StatelessWidget {
   final String text;
   final Function onTap;
   final bool isDisabled;
-  final Color color;
+  final Color foregroundColor;
+  final Color backgroundColor;
 
   final double elevation;
 
@@ -19,12 +20,12 @@ class NotificationCardButton extends StatelessWidget {
     required this.text,
     required this.onTap,
     this.isDisabled = false,
-    this.color = AppColor.buttonHoverColor,
-
+    this.foregroundColor = AppColor.regularButtonForegroundActiveColor,
+    this.backgroundColor = AppColor.regularButtonBackgroundActiveColor,
     this.cornerRadius = 8,
     this.leading = const SizedBox(),
     this.height = 55,
-    this.elevation=0.0
+    this.elevation = 0.0,
   });
 
   @override
@@ -33,44 +34,42 @@ class NotificationCardButton extends StatelessWidget {
   }
 
   Widget buildButton() {
-    return SizedBox(
-      width: double.infinity,
-      height: height,
+    return Expanded(
       child: ElevatedButton(
-        style:
-            ButtonStyle(elevation: MaterialStateProperty.resolveWith((states) {
-          return elevation;
-        }), shape: MaterialStateProperty.resolveWith((states) {
-          return RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(cornerRadius),
-          );
-        }), foregroundColor: MaterialStateProperty.resolveWith((states) {
-          return AppColor.buttonPressedColor;
-        }), backgroundColor: MaterialStateProperty.resolveWith((states) {
-          if (states.contains(MaterialState.pressed))
-            return AppColor.buttonPressedColor;
-          else
-            return color;
-        })),
+        style: ButtonStyle(
+            elevation: MaterialStateProperty.resolveWith((states) {
+              return elevation;
+            }),
+            side: MaterialStateProperty.resolveWith((states) {
+              return BorderSide(width: 1, color: foregroundColor);
+
+            }),
+            shape: MaterialStateProperty.resolveWith((states) {
+              return RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(cornerRadius), );
+            }),
+            foregroundColor: MaterialStateProperty.resolveWith((states) {
+              return foregroundColor;
+            }),
+            backgroundColor: MaterialStateProperty.resolveWith((states) {
+              if (states.contains(MaterialState.pressed))
+                return AppColor.regularButtonBackgroundPressedColor;
+              else
+                return backgroundColor;
+            })),
         onPressed: () {
-          onTap( );
+          onTap();
         },
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            leading == null
-                ? Container()
-                : Padding(
-                    padding: const EdgeInsets.only(right: 13.0),
-                    child: leading,
-                  ),
             Flexible(
               child: Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Text(
                   '$text',
                   textAlign: TextAlign.center,
-                  style: AppTextStyle.button,
+                  //style: AppTextStyle.button,
                 ),
               ),
             ),

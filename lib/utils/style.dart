@@ -6,13 +6,23 @@ class AppColor {
   static const Color focusedTextFieldBorderColor =
       Color.fromRGBO(75, 48, 162, 1);
 
-  static const Color buttonActiveColor = Color.fromRGBO(106, 81, 183, 1);
-  static const Color buttonPressedColor = Color.fromRGBO(75, 48, 162, 1);
+  static const Color bottomButtonActiveColor = Color.fromRGBO(106, 81, 183, 1);
+  static const Color bottomButtonPressedColor = Color.fromRGBO(75, 48, 162, 1);
+  static const Color bottomButtonHoverColor = Color.fromRGBO(146, 124, 212, 1);
+  static const Color bottomButtonInactiveColor = Color.fromRGBO(185, 185, 185, 1);
 
-  static const Color buttonHoverColor = Color.fromRGBO(146, 124, 212, 1);
-  static const Color buttonInactiveColor = Color.fromRGBO(185, 185, 185, 1);
+ static const Color regularButtonForegroundActiveColor = Color.fromRGBO(106, 81, 183, 1);
+  static const Color regularButtonForegroundPressedColor = Color.fromRGBO(75, 48, 162, 1);
+  static const Color regularButtonForegroundHoverColor = Color.fromRGBO(146, 124, 212, 1);
+  static const Color regularButtonForegroundInactiveColor = Color.fromRGBO(185, 185, 185, 1);
+
+  static const Color regularButtonBackgroundActiveColor = Colors.white10;
+  static const Color regularButtonBackgroundPressedColor = Colors.white;
+  static   Color regularButtonBackgroundHoverColor = Colors.white.withOpacity(0.7);
+  static   Color regularButtonBackgroundInactiveColor = Colors.white.withOpacity(0.3);
+
   static const Color notificationCardBorderColor =
-      Color.fromRGBO(106, 7, 186, 1);
+      Color.fromRGBO(106, 77, 186, 1);
 }
 
 class AppFont {

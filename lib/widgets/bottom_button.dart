@@ -7,10 +7,7 @@ class BottomButton extends StatelessWidget {
   final Function onTap;
   final bool isDisabled;
   final Color color;
-  final Color activeColor;
-  final Color inactiveColor;
-  final Color hoverColor;
-  final Color pressedColor;
+
   final double elevation;
 
   final Widget leading;
@@ -22,11 +19,8 @@ class BottomButton extends StatelessWidget {
     required this.text,
     required this.onTap,
     this.isDisabled = false,
-    this.color = AppColor.buttonHoverColor,
-    this.activeColor = AppColor.buttonActiveColor,
-    this.inactiveColor = AppColor.buttonInactiveColor,
-    this.hoverColor = AppColor.buttonHoverColor,
-    this.pressedColor = AppColor.buttonPressedColor,
+    this.color = AppColor.bottomButtonHoverColor,
+
     this.cornerRadius = 8,
     this.leading = const SizedBox(),
     this.height = 55,
@@ -51,10 +45,10 @@ class BottomButton extends StatelessWidget {
             borderRadius: BorderRadius.circular(cornerRadius),
           );
         }), foregroundColor: MaterialStateProperty.resolveWith((states) {
-          return AppColor.buttonPressedColor;
+          return AppColor.bottomButtonPressedColor;
         }), backgroundColor: MaterialStateProperty.resolveWith((states) {
           if (states.contains(MaterialState.pressed))
-            return AppColor.buttonPressedColor;
+            return AppColor.bottomButtonPressedColor;
           else
             return color;
         })),
