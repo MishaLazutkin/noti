@@ -17,16 +17,16 @@ class NotificationCardButton extends StatelessWidget {
   final double cornerRadius;
 
   NotificationCardButton({
+    super.key,
     required this.text,
     required this.onTap,
     this.isDisabled = false,
     this.foregroundColor = AppColor.regularButtonForegroundActiveColor,
-    this.backgroundColor = AppColor.regularButtonBackgroundActiveColor,
     this.cornerRadius = 8,
     this.leading = const SizedBox(),
     this.height = 55,
     this.elevation = 0.0,
-  });
+  }) : backgroundColor = AppColor.regularButtonBackgroundActiveColor;
 
   @override
   Widget build(BuildContext context) {
@@ -37,19 +37,37 @@ class NotificationCardButton extends StatelessWidget {
     return Expanded(
       child: ElevatedButton(
         style: ButtonStyle(
+            textStyle: MaterialStateProperty.resolveWith(
+                (states) => TextStyle(fontWeight: FontWeight.bold)),
+            overlayColor: MaterialStateProperty.resolveWith(
+              (states) {
+                return states.contains(MaterialState.pressed)
+                    ? AppColor.regularButtonBackgroundPressedColor
+                    : backgroundColor;
+              },
+            ),
             elevation: MaterialStateProperty.resolveWith((states) {
               return elevation;
             }),
             side: MaterialStateProperty.resolveWith((states) {
-              return BorderSide(width: 1, color: foregroundColor);
-
+              return states.contains(MaterialState.pressed)
+                  ? BorderSide(
+                      width: 1,
+                      color: AppColor.regularButtonForegroundPressedColor)
+                  :BorderSide(
+                  width: 1,
+                  color: foregroundColor)  ;
             }),
             shape: MaterialStateProperty.resolveWith((states) {
               return RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(cornerRadius), );
+                borderRadius: BorderRadius.circular(cornerRadius),
+              );
             }),
             foregroundColor: MaterialStateProperty.resolveWith((states) {
-              return foregroundColor;
+              if (states.contains(MaterialState.pressed))
+                return AppColor.regularButtonForegroundPressedColor;
+              else
+                return foregroundColor;
             }),
             backgroundColor: MaterialStateProperty.resolveWith((states) {
               if (states.contains(MaterialState.pressed))
