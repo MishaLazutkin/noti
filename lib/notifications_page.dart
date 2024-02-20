@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:noti/tabs/one_time_tab.dart';
+import 'package:noti/tabs/recurring_tab.dart';
 import 'package:noti/widgets/tabs.dart';
 
 import 'widgets/notification_card.dart';
@@ -102,21 +104,8 @@ class _NotificationsPageState extends State<NotificationsPage>
         body: TabBarView(
           controller: _tabController,
           children: const [
-            Column(
-              children: [
-                NotificationCard(),
-                SizedBox(height: 16,),
-                NotificationCard(),
-              ],
-            ),
-            Center(
-              child: Text(
-                'Advanced Settings',
-                style: TextStyle(
-                  fontSize: 30,
-                ),
-              ),
-            ),
+            OneTimeTab(),
+            RecurringTab()
           ],
         ),
       ),

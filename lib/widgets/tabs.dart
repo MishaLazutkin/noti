@@ -44,7 +44,7 @@ class CustomTabs extends PreferredSize {
             child: TabBarView(
               controller: _tabController,
               children: [
-                // first tab bar view widget
+               
                 Center(
                   child: Text(
                     'Place Bid',
