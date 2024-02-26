@@ -25,9 +25,9 @@ class _NotificationsPageState extends State<NotificationsPage>
       length: 2,
       child: Scaffold(
         appBar: AppBar(
+          automaticallyImplyLeading: false,
           title: const Text(
             'Notifications',
-            style: TextStyle(color: Colors.white),
           ),
           bottom: PreferredSize(
             preferredSize: Size.fromHeight(AppBar().preferredSize.height + 20),

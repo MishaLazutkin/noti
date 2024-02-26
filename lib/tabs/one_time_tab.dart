@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:noti/add_notification.dart';
 import 'package:noti/widgets/bottom_button.dart';
 
 import '../widgets/notification_card.dart';
@@ -26,13 +27,16 @@ class OneTimeTab extends StatelessWidget {
           ),
           BottomButton.withIcon(
               icon: SvgPicture.asset(
-                  'lib/assets/icons/add_circle.svg',
-                  width: 20,
-                  height: 20,
-                  color: Colors.white,
-                  ),
+                'lib/assets/icons/add_circle.svg',
+                width: 20,
+                height: 20,
+                color: Colors.white,
+              ),
               text: 'Add new notification',
-              onTap: () {})
+              onTap: () {
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (ctx) => const AddNotification()));
+              })
         ],
       ),
     );

@@ -4,6 +4,7 @@ import 'package:noti/notifications_page.dart';
 import 'package:noti/providers/login_provider.dart';
 import 'package:noti/utils/style.dart';
 import 'package:noti/widgets/bottom_button.dart';
+import 'package:noti/widgets/header.dart';
 import 'package:noti/widgets/time_text_field.dart';
 import 'package:pinput/pinput.dart';
 import 'package:provider/provider.dart';
@@ -31,8 +32,11 @@ class MyApp extends StatelessWidget {
         title: 'Flutter Demo',
         theme: ThemeData(
           appBarTheme: const AppBarTheme(
-            iconTheme: IconThemeData(color: Colors.black),
+            iconTheme: IconThemeData(color: Colors.white),
+            centerTitle:true,
             color: Colors.black,
+            titleTextStyle: AppTextStyle.appBarTitle,
+            foregroundColor: AppColor.headerForegroundColor,
           ),
         ),
         home: const MyHomePage(title: 'Log In'),
@@ -64,17 +68,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      appBar: AppBar(
-        title: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(
-              widget.title,
-              style: const TextStyle(color: Colors.white),
-            ),
-          ],
-        ),
-      ),
+      appBar: CustomAppBar(title: widget.title,),
       body: CustomScrollView(
         slivers: <Widget>[
           SliverToBoxAdapter(
@@ -85,7 +79,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 const SizedBox(
                   height: 150,
                 ),
-                Text('Log In', style: AppTextStyle.loginTitle),
+                Text('Log In', style: AppTextStyle.appBarTitle),
                 const SizedBox(
                   height: 20,
                 ),

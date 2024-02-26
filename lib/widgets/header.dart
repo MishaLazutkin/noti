@@ -2,10 +2,14 @@ import 'package:flutter/material.dart';
 
 import '../utils/style.dart';
 
-class CustomHeader extends StatelessWidget implements PreferredSizeWidget {
+class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
+ final String title;
+ final bool implyLeading;
 
 
-  CustomHeader({
+  CustomAppBar({
+    this.title='',
+    this.implyLeading=false,
     Key? key,
 
   }) : super(key: key);
@@ -13,57 +17,28 @@ class CustomHeader extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      backgroundColor: AppColor.headerColor,
+      leading: implyLeading? IconButton(
+        onPressed: () {
+          Navigator.pop(context);
+        },
+        icon: const Icon(Icons.arrow_back_ios),
+      ):Container(),
+      backgroundColor: AppColor.headerBackgroundColor,
       elevation: 0.0,
-      automaticallyImplyLeading: false,
+      centerTitle:true,
+      automaticallyImplyLeading: implyLeading,
       actions: [Container()],
       title: Padding(
-        padding: EdgeInsets.only(top: 0),
-        child: Row(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Text('Log In'),
-
-
-          ],
-        ),
+        padding: const EdgeInsets.only(top: 0),
+        child: Text(title, ),
       ),
 
-      // bottom: PreferredSize(
-      //   preferredSize: Size.fromHeight(0),
-      //   child: Padding(
-      //     padding: EdgeInsets.only(left: 16, right: 16,top: kToolbarHeight),
-      //     child: Row(
-      //       crossAxisAlignment: CrossAxisAlignment.center,
-      //       children: [
-      //         SvgPicture.asset(
-      //           'lib/assets/icons/clean_whale.svg',
-      //           height: 35,
-      //         ),
-      //         const Spacer(),
-      //         Builder(
-      //           builder: (context) =>
-      //               InkWell(
-      //             onTap: () {
-      //
-      //               Scaffold.of(context).openEndDrawer();
-      //             },
-      //             child: SvgPicture.asset(
-      //               'lib/assets/icons/menu.svg',
-      //               width: 22,
-      //               height: 22,
-      //             ),
-      //           ),
-      //         ),
-      //       ],
-      //     ),
-      //   ),
-      // ),
+
     );
   }
 
 //+ MediaQuery.of(context).padding.top
   @override
   // TODO: implement preferredSize
-  Size get preferredSize => Size.fromHeight(kToolbarHeight);
+  Size get preferredSize => const Size.fromHeight(kToolbarHeight);
 }
